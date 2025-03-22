@@ -51,8 +51,8 @@
     </div>
   </nav> -->
 
-
-  <nav class="navbar navbar-expand-lg" [ngClass]="{'navbar-dark bg-dark': isDarkMode, 'navbar-light bg-light': !isDarkMode}">
+  <!-- #6610f2; -->
+  <nav class="navbar navbar-expand-lg" [ngClass]="{'navbar-dark bg-dark': isDarkMode, 'navbar-primary  bg-primary ': !isDarkMode}">
     <div class="container-fluid">
       <!-- Logo -->
       <a class="navbar-brand" routerLink="/">My Portfolio</a>
@@ -64,7 +64,7 @@
         aria-controls="offcanvasNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-  
+
       <!-- Normal Navbar (For Large Screens) -->
       <div class="collapse navbar-collapse d-none d-lg-flex justify-content-center" id="navbarNav">
         <ul class="navbar-nav mx-auto">
@@ -108,11 +108,12 @@
           </ul>
         </div>
       </div>
- <!-- Theme Toggle Button with Icon -->
- <button (click)="toggleTheme()" class="btn me-2" [ngClass]="{'btn-outline-light': isDarkMode, 'btn-outline-dark': !isDarkMode}">
-    <i [ngClass]="isDarkMode ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill'"></i>
-  </button>
+      <!-- Theme Toggle Button with Icon -->
+      <button  (click)="toggleTheme()" class="btn btn-sm me-1" [ngClass]="{'btn-outline-light': isDarkMode, 'btn-outline-dark': !isDarkMode}">
+        <i [ngClass]="isDarkMode ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill'"></i>
+      </button>
 
     </div>
+ 
   </nav>
   
