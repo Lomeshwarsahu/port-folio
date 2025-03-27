@@ -10,6 +10,12 @@
     .offcanvas {
       display: none !important;
     }
+    .btn_pa{
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
   }
   body {
     transition: background-color 0.3s, color 0.3s;
@@ -18,3 +24,5 @@
   button i {
     font-size: 1.3rem;
   }
+
+ 
