@@ -1,16 +1,350 @@
 
 
-<app-navbar></app-navbar>
+<!-- <app-navbar></app-navbar> -->
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+      <a class="navbar-brand" href="#">Lomeshwar Sahu</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+              <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+      </div>
+  </div>
+</nav> -->
+<nav class="navbar navbar-expand-lg"
+  [ngClass]="{'navbar-dark bg-dark': isDarkMode, 'navbar-primary  bg-primary ': !isDarkMode}">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand" routerLink="/">Lomeshwar Sahu</a>
+
+
+    <!-- Toggle Button (For Mobile View) -->
+    <button class="navbar-toggler ms-auto pr-2" type="button" data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <!-- Normal Navbar (For Large Screens) -->
+    <div class="collapse navbar-collapse d-none d-flex justify-content-center" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#home" routerLinkActive="active">Home</a>
+          <!-- <a class="nav-link" routerLink="#home" routerLinkActive="active">Home</a> -->
+          <!-- <a href="#home" class="btn btn-light" routerLinkActive="active">Home</a> -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about" routerLinkActive="active">About</a>
+          <!-- <a href="#about" class="btn btn-light">About</a> -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#skills"  routerLinkActive="active">skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#projects" routerLinkActive="active">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#experience" routerLinkActive="active">Experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#education" routerLinkActive="active">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#skills" routerLinkActive="active">Resume</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact" routerLinkActive="active">Contact</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Offcanvas Sidebar (For Mobile View) -->
+    <div class="offcanvas offcanvas-start " [ngClass]="{'text-bg-dark': isDarkMode, 'text-bg-light': !isDarkMode}"
+      tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close" [ngClass]="{'btn-close-white': isDarkMode}" data-bs-dismiss="offcanvas"
+          aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <!-- <a class="nav-link" routerLink="/" routerLinkActive="active" data-bs-dismiss="offcanvas">Home</a> -->
+            <a class="nav-link" href="#home" routerLinkActive="active" data-bs-dismiss="offcanvas">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about" routerLinkActive="active" data-bs-dismiss="offcanvas">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects" routerLinkActive="active" data-bs-dismiss="offcanvas">Projects</a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link" href="#skills"  routerLinkActive="active" data-bs-dismiss="offcanvas">skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#experience" routerLinkActive="active" data-bs-dismiss="offcanvas">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#education" routerLinkActive="active" data-bs-dismiss="offcanvas">Education</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#resume" routerLinkActive="active" data-bs-dismiss="offcanvas">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact" routerLinkActive="active" data-bs-dismiss="offcanvas">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="" style="padding-left: 4px;">
+      <!-- Theme Toggle Button with Icon -->
+      <button (click)="toggleTheme()" class="btn btn-sm me-1 btn_pa"
+        [ngClass]="{'btn-outline-light': isDarkMode, 'btn-outline-dark': !isDarkMode}">
+        <i [ngClass]="isDarkMode ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill'"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
 <div class="card">
   <div class="card body">
     <div>
-      hi
+      <section id="home" class="d-flex align-items-center justify-content-center text-center bg-primary text-white" style="height: 100vh;">
+        <div>
+            <h1>Welcome to My Portfolio</h1>
+            <p>Hi, I'm Lomeshwar Sahu, a passionate programmer who loves building amazing web applications.</p>
+            <a href="#about" class="btn btn-light">Learn More</a>
+        </div>
+    </section>
+    
+    <section id="about" class="container py-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="src/assets/img/photo_2025-03-04_13-27-30.jpg" alt="Profile Image" class="img-fluid rounded">
+                <!-- <img src="src\assets\img\img1.jpg" alt="Profile Image" class="img-fluid rounded"> -->
+            </div>
+            <div class="col-md-6">
+              <h2>About Me</h2>
+              <p>I am a software developer with expertise in Angular, Bootstrap, and other modern web technologies. I love solving problems and creating efficient solutions.</p>
+              <p>I specialize in frontend and backend development, with a strong focus on user experience, responsive design, and performance optimization.</p>
+              <p>My interests include exploring new technologies, contributing to open-source projects, and sharing knowledge through blogging and mentorship.</p>
+              <p>When I'm not coding, I enjoy reading tech blogs, playing video games, and working on personal projects to enhance my skills.</p>
+          </div>
+        </div>
+    </section>
+    <section id="skills" class="bg-light py-5">
+      <div class="container">
+          <h2 class="text-center">Skills</h2>
+          <div class="row text-center mt-4">
+              <div class="col-md-4">
+                  <h4>Programming Languages</h4>
+                  <p>JavaScript, TypeScript, Python, Java, C++</p>
+              </div>
+              <div class="col-md-4">
+                  <h4>Frameworks & Libraries</h4>
+                  <p>Angular, Bootstrap, React, Node.js, Express.js</p>
+              </div>
+              <div class="col-md-4">
+                  <h4>Tools & Technologies</h4>
+                  <p>Git, GitHub, Docker, Firebase, MySQL, MongoDB</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section id="projects" class="container py-5">
+    <h2 class="text-center">Projects</h2>
+    <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/400" class="card-img-top" alt="Project 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Project 1</h5>
+                                <p class="card-text">Description of project 1.</p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-none d-lg-block">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/400" class="card-img-top" alt="Project 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Project 2</h5>
+                                <p class="card-text">Description of project 2.</p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-none d-lg-block">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/400" class="card-img-top" alt="Project 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Project 3</h5>
+                                <p class="card-text">Description of project 3.</p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/400" class="card-img-top" alt="Project 4">
+                            <div class="card-body">
+                                <h5 class="card-title">Project 4</h5>
+                                <p class="card-text">Description of project 4.</p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-none d-lg-block">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/400" class="card-img-top" alt="Project 5">
+                            <div class="card-body">
+                                <h5 class="card-title">Project 5</h5>
+                                <p class="card-text">Description of project 5.</p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-none d-lg-block">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/400" class="card-img-top" alt="Project 6">
+                            <div class="card-body">
+                                <h5 class="card-title">Project 6</h5>
+                                <p class="card-text">Description of project 6.</p>
+                                <a href="#" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+</section>
+<section id="experience" class="container py-5">
+  <h2 class="text-center mb-4">Experience</h2>
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card mb-3">
+              <div class="card-body">
+                  <h5 class="card-title">Software Developer - XYZ Company</h5>
+                  <h6 class="text-muted">Jan 2022 - Present</h6>
+                  <p class="card-text">Developed web applications using Angular and Bootstrap. Implemented REST APIs and improved UI/UX.</p>
+              </div>
+          </div>
+
+          <div class="card mb-3">
+              <div class="card-body">
+                  <h5 class="card-title">Frontend Intern - ABC Tech</h5>
+                  <h6 class="text-muted">June 2021 - Dec 2021</h6>
+                  <p class="card-text">Worked on responsive web designs and optimized website performance.</p>
+              </div>
+          </div>
+
+          <div class="card mb-3">
+              <div class="card-body">
+                  <h5 class="card-title">Freelance Web Developer</h5>
+                  <h6 class="text-muted">2020 - 2021</h6>
+                  <p class="card-text">Created multiple websites and web apps for clients using modern web technologies.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<section id="education" class="container py-5">
+  <h2 class="text-center mb-4">Education</h2>
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card mb-3">
+              <div class="card-body">
+                  <h5 class="card-title">Bachelor of Technology in Computer Science</h5>
+                  <h6 class="text-muted">ABC University, 2018 - 2022</h6>
+                  <p class="card-text">Studied software development, data structures, algorithms, and web technologies.</p>
+              </div>
+          </div>
+
+          <div class="card mb-3">
+              <div class="card-body">
+                  <h5 class="card-title">Full Stack Web Development Certification</h5>
+                  <h6 class="text-muted">XYZ Online Academy, 2021</h6>
+                  <p class="card-text">Completed an intensive course covering frontend and backend development using modern frameworks.</p>
+              </div>
+          </div>
+
+          <div class="card mb-3">
+              <div class="card-body">
+                  <h5 class="card-title">Advanced JavaScript Course</h5>
+                  <h6 class="text-muted">Udemy, 2020</h6>
+                  <p class="card-text">Learned advanced JavaScript concepts, ES6+, and asynchronous programming.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<section id="contact" class="container py-5">
+  <h2 class="text-center mb-4">Contact</h2>
+  <div class="row justify-content-center">
+      <div class="col-md-6">
+          <div class="card p-4 text-center">
+              <h5>Email</h5>
+              <p><a href="mailto:your.email@example.com">your.email example.com</a></p>
+
+              <h5>LinkedIn</h5>
+              <p><a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+
+              <h5>GitHub</h5>
+              <p><a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></p>
+
+              <h5>Phone</h5>
+              <p><a href="tel:+1234567890">+1234567890</a></p>
+          </div>
+      </div>
+  </div>
+</section>
+<button (click)="scrollToTop()" id="scrollTopBtn" class="btn btn-primary">↑ Top</button>
+
+<button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon"></span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+  <span class="carousel-control-next-icon"></span>
+</button>
+
     </div>
 
   </div>
 
 </div>
 
+<div class="pt-2">
+  <footer class="bg-secondary text-white text-center fixed-bottom"  >
+    <div class="container p-2">
+      <p class="mb-0">&copy; 2024 My Portfolio. All Rights Reserved.</p>
+    </div>
+  </footer>
+</div>
 
 <router-outlet></router-outlet>
 
