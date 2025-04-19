@@ -1,5 +1,7 @@
-import { Component,HostListener  } from '@angular/core';
-
+import { Component,ElementRef,HostListener, ViewChild  } from '@angular/core';
+import { Offcanvas } from 'bootstrap';
+import { Router, NavigationEnd } from '@angular/router';
+import * as bootstrap from 'bootstrap';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -8,34 +10,119 @@ import { Component,HostListener  } from '@angular/core';
 })
 export class AppComponent {
   isDarkMode = false;
+  activeMenu: string = 'home';
+  @ViewChild('offcanvasRef', { static: false }) offcanvasRef!: ElementRef;
+  private bsOffcanvas!: Offcanvas;
+
+  // activeMenu: string = 'home';
   projects = [
     { title: 'Project 1', description: 'Description of project 1', image: 'https://via.placeholder.com/400', link: '#' },
     { title: 'Project 2', description: 'Description of project 2', image: 'https://via.placeholder.com/400', link: '#' },
     { title: 'Project 3', description: 'Description of project 3', image: 'https://via.placeholder.com/400', link: '#' }
   ];
-  toggleTheme() {
-    this.isDarkMode = !this.isDarkMode;
-    document.body.classList.toggle('bg-dark', this.isDarkMode);
-    document.body.classList.toggle('text-light', this.isDarkMode);
-    localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
-  }
+  constructor(private router: Router) {}
 
   ngOnInit() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      this.isDarkMode = savedTheme === 'dark';
-      document.body.classList.toggle('bg-dark', this.isDarkMode);
-      document.body.classList.toggle('text-light', this.isDarkMode);
+    const storedMenu = localStorage.getItem('activeMenu');
+    if (storedMenu) {
+      this.activeMenu = storedMenu;
+    }
+
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        const fragment = this.router.url.split('#')[1];
+        this.activeMenu = fragment || 'home'; // Set to home if no fragment
+      }
+    });
+  }
+  setActive(menu: string) {
+    this.activeMenu = menu;
+    localStorage.setItem('activeMenu', menu);
+  }
+
+  // setActive(menu: string): void {
+  //   this.activeMenu = menu;
+  // }
+  // ngAfterViewInit(): void {
+  //   setTimeout(() => {
+  //     const elements = document.querySelectorAll('.animate-on-scroll');
+  
+  //     const observer = new IntersectionObserver((entries, observer) => {
+  //       entries.forEach(entry => {
+  //         if (entry.isIntersecting) {
+  //           entry.target.classList.add('visible');
+  //           observer.unobserve(entry.target);
+  //         }
+  //       });
+  //     }, { threshold: 0.1 });
+  
+  //     elements.forEach(el => observer.observe(el));
+  //   }, 100); // delay observer by 100ms
+  // }
+  
+  
+  
+  
+  
+
+  // ngAfterViewInit(): void {
+  //   this.bsOffcanvas = new Offcanvas(this.offcanvasRef.nativeElement);
+  // }
+  dismissOffcanvas() {
+    const offcanvasEl = this.offcanvasRef.nativeElement;
+    const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl) || new bootstrap.Offcanvas(offcanvasEl);
+    bsOffcanvas.hide();
+  }
+ 
+navigateAndClose(fragment: string) {
+  const el = document.getElementById('offcanvasNavbar');
+  const bsOffcanvas = Offcanvas.getInstance(el!) || new Offcanvas(el!);
+  localStorage.setItem('activeMenu', fragment);
+  // Hide the offcanvas
+  bsOffcanvas.hide();
+
+  // Navigate without reload
+  this.router.navigate([], { fragment }).then(() => {
+    // Scroll to fragment after DOM update
+    setTimeout(() => {
+      const target = document.getElementById(fragment);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 300);
+  });
+
+  // Remove leftover backdrops and inline styles from <body>
+  setTimeout(() => {
+    // Remove backdrops
+    document.querySelectorAll('.offcanvas-backdrop').forEach(b => b.remove());
+
+    // Clear inline styles on body
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
+  }, 400);
+}
+openOffcanvas() {
+  const el = document.getElementById('offcanvasNavbar');
+  if (el) {
+    const bsOffcanvas = Offcanvas.getInstance(el) || new Offcanvas(el);
+    bsOffcanvas.show();
+  }
+}
+
+ 
+
+  scrollToSection(id: string): void {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
+  
+
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-  @HostListener('window:scroll', [])
-  onScroll() {
-    const scrollTopBtn = document.getElementById("scrollTopBtn");
-    if (scrollTopBtn) {
-      scrollTopBtn.style.display = window.scrollY > 100 ? "block" : "none";
-    }
-  }
+  
 }

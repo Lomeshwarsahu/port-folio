@@ -1,345 +1,494 @@
-
-
-<!-- <app-navbar></app-navbar> -->
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-      <a class="navbar-brand" href="#">Lomeshwar Sahu</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-              <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-              <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          </ul>
-      </div>
-  </div>
-</nav> -->
-<nav class="navbar navbar-expand-lg"
-  [ngClass]="{'navbar-dark bg-dark': isDarkMode, 'navbar-primary  bg-primary ': !isDarkMode}">
+<nav class="navbar navbar-expand-lg" style="background-color: #480878;">
   <div class="container-fluid">
     <!-- Logo -->
-    <a class="navbar-brand" routerLink="/">Lomeshwar Sahu</a>
+    <p class="navbar-brand text-bold fw-bold" style="color: #f8f9fa">Lomeshwar Sahu</p>
 
 
     <!-- Toggle Button (For Mobile View) -->
-    <button class="navbar-toggler ms-auto pr-2" type="button" data-bs-toggle="offcanvas"
+    <!-- <button class="navbar-toggler ms-auto pr-2 bg-white" type="button" data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
+    </button> -->
+    <button class="navbar-toggler ms-auto pr-2 bg-white" type="button" (click)="openOffcanvas()">
+      <span class="navbar-toggler-icon"></span>
     </button>
+
 
 
     <!-- Normal Navbar (For Large Screens) -->
     <div class="collapse navbar-collapse d-none d-flex justify-content-center" id="navbarNav">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#home" routerLinkActive="active">Home</a>
-          <!-- <a class="nav-link" routerLink="#home" routerLinkActive="active">Home</a> -->
-          <!-- <a href="#home" class="btn btn-light" routerLinkActive="active">Home</a> -->
+          <a class="nav-link" [routerLink]="['/']" fragment="home" (click)="setActive('home')"
+            [ngClass]="{'active': activeMenu === 'home'}"> Home </a>
+
+
+
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#about" routerLinkActive="active">About</a>
-          <!-- <a href="#about" class="btn btn-light">About</a> -->
+          <a class="nav-link" [routerLink]="['/']" fragment="about" (click)="setActive('about')"
+            [ngClass]="{'active': activeMenu === 'about'}">
+            About
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#skills"  routerLinkActive="active">skills</a>
+          <a class="nav-link" [routerLink]="['/']" fragment="skills" (click)="setActive('skills')"
+            [ngClass]="{'active': activeMenu === 'skills'}">Skills</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#projects" routerLinkActive="active">Projects</a>
+          <a class="nav-link" [routerLink]="['/']" fragment="projects" (click)="setActive('projects')"
+            [ngClass]="{'active': activeMenu === 'projects'}">
+            Projects
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#experience" routerLinkActive="active">Experience</a>
+          <a class="nav-link" [routerLink]="['/']" fragment="experience" (click)="setActive('experience')"
+            [ngClass]="{'active': activeMenu === 'experience'}"> Experience</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#education" routerLinkActive="active">Education</a>
+          <a class="nav-link" [routerLink]="['/']" fragment="education" (click)="setActive('education')"
+            [ngClass]="{'active': activeMenu === 'education'}"> Education</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#skills" routerLinkActive="active">Resume</a>
+          <a class="nav-link" [routerLink]="['/']" fragment="Resume" (click)="setActive('Resume')"
+            [ngClass]="{'active': activeMenu === 'Resume'}">Resume</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contact" routerLinkActive="active">Contact</a>
+          <a class="nav-link" [routerLink]="['/']" fragment="contact" (click)="setActive('contact')"
+            [ngClass]="{'active': activeMenu === 'contact'}">Contact</a>
         </li>
       </ul>
     </div>
 
     <!-- Offcanvas Sidebar (For Mobile View) -->
-    <div class="offcanvas offcanvas-start " [ngClass]="{'text-bg-dark': isDarkMode, 'text-bg-light': !isDarkMode}"
-      tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-        <button type="button" class="btn-close" [ngClass]="{'btn-close-white': isDarkMode}" data-bs-dismiss="offcanvas"
+    <div class="offcanvas offcanvas-start border rounded" #offcanvasNavbar
+      [ngClass]="{'text-bg-dark': isDarkMode, 'text-bg-light': !isDarkMode}" tabindex="-1" id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header bg-white">
+        <h5 class="offcanvas-title text-dark" id="offcanvasNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close text-dark"  data-bs-dismiss="offcanvas"
           aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body">
+      <div class="offcanvas-body  ">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <!-- <a class="nav-link" routerLink="/" routerLinkActive="active" data-bs-dismiss="offcanvas">Home</a> -->
-            <a class="nav-link" href="#home" routerLinkActive="active" data-bs-dismiss="offcanvas">Home</a>
+          <li class="nav-item"><a class="nav-link " (click)="navigateAndClose('home')" routerLinkActive="active"
+             [ngClass]="{'active': activeMenu === 'home'}">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about" routerLinkActive="active" data-bs-dismiss="offcanvas">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#projects" routerLinkActive="active" data-bs-dismiss="offcanvas">Projects</a>
-          </li>
-         
-          <li class="nav-item">
-            <a class="nav-link" href="#skills"  routerLinkActive="active" data-bs-dismiss="offcanvas">skills</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#experience" routerLinkActive="active" data-bs-dismiss="offcanvas">Experience</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#education" routerLinkActive="active" data-bs-dismiss="offcanvas">Education</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#resume" routerLinkActive="active" data-bs-dismiss="offcanvas">Resume</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact" routerLinkActive="active" data-bs-dismiss="offcanvas">Contact</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" (click)="navigateAndClose('about')"
+              routerLinkActive="active"   [ngClass]="{'active': activeMenu === 'about'}">About</a></li>
+          <li class="nav-item"><a class="nav-link" (click)="navigateAndClose('projects')"
+              routerLinkActive="active"   [ngClass]="{'active': activeMenu === 'projects'}">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" (click)="navigateAndClose('skills')"
+              routerLinkActive="active"[ngClass]="{'active': activeMenu === 'skills'}">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" (click)="navigateAndClose('experience')"
+              routerLinkActive="active"[ngClass]="{'active': activeMenu === 'experience'}">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" (click)="navigateAndClose('education')"
+              routerLinkActive="active"[ngClass]="{'active': activeMenu === 'education'}">Education</a></li>
+          <li class="nav-item"><a class="nav-link" (click)="navigateAndClose('Resume')"
+              routerLinkActive="active"[ngClass]="{'active': activeMenu === 'Resume'}">Resume</a></li>
+          <li class="nav-item"><a class="nav-link" (click)="navigateAndClose('contact')"
+              routerLinkActive="active"[ngClass]="{'active': activeMenu === 'contact'}">Contact</a></li>
         </ul>
       </div>
     </div>
-    <div class="" style="padding-left: 4px;">
-      <!-- Theme Toggle Button with Icon -->
+
+
+    <!-- <div class="" style="padding-left: 4px;">
       <button (click)="toggleTheme()" class="btn btn-sm me-1 btn_pa"
         [ngClass]="{'btn-outline-light': isDarkMode, 'btn-outline-dark': !isDarkMode}">
         <i [ngClass]="isDarkMode ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill'"></i>
       </button>
-    </div>
+    </div> -->
   </div>
 </nav>
 
-<div class="card">
-  <div class="card body">
+<!-- (click)="navigateAndClose('home')" -->
+<div class="card shadow mb-4" >
+  <div class="card body color transition-all hover-shadow-lg">
     <div>
-      <section id="home" class="d-flex align-items-center justify-content-center text-center bg-primary text-white" style="height: 100vh;">
-        <div>
+      <section class="card border rounded" style="background-color: #875ca4;">
+        <div id="home" class="d-flex align-items-center justify-content-center text-center text-white border rounded"
+          style="height: 100vh;">
+          <div>
             <h1>Welcome to My Portfolio</h1>
             <p>Hi, I'm Lomeshwar Sahu, a passionate programmer who loves building amazing web applications.</p>
-            <a href="#about" class="btn btn-light">Learn More</a>
+            <!-- <a href="#about" class="btn btn-light">Learn More</a> -->
+            <a class="btn btn-light" (click)="navigateAndClose('about')"
+              >Learn More</a>
+          </div>
         </div>
-    </section>
-    
-    <section id="about" class="container py-5">
-        <div class="row">
+      </section>
+      <div class="card rounded m-2  transition-all hover-shadow-lg text-dark" style="color: #f8f9fa">
+
+        <section id="about" class="container py-5">
+          <div class="row">
+
             <div class="col-md-6">
-                <img src="src/assets/img/photo_2025-03-04_13-27-30.jpg" alt="Profile Image" class="img-fluid rounded">
-                <!-- <img src="src\assets\img\img1.jpg" alt="Profile Image" class="img-fluid rounded"> -->
+              <div class="text-center" style="max-width: 300px; margin: auto;">
+
+                <img src="assets/img/photo_2025-03-04_13-27-30.jpg" alt="Profile Image"
+                  class="img-fluid rounded-circle border w-100" style="object-fit: cover; aspect-ratio: 1/1;">
+              </div>
+
+
+              <!-- <img  class="w-100 border rounded-circle " src="assets/img/photo_2025-03-04_13-27-30.jpg" alt="Profile Image" > -->
+              <!-- <img src="assets/img/photo_2025-03-04_13-27-30.jpg" alt="Profile Image" class="img-fluid rounded"> -->
+
+              <!-- <img src="src\assets\img\img1.jpg" alt="Profile Image" class="img-fluid rounded"> -->
             </div>
             <div class="col-md-6">
               <h2>About Me</h2>
-              <p>I am a software developer with expertise in Angular, Bootstrap, and other modern web technologies. I love solving problems and creating efficient solutions.</p>
-              <p>I specialize in frontend and backend development, with a strong focus on user experience, responsive design, and performance optimization.</p>
-              <p>My interests include exploring new technologies, contributing to open-source projects, and sharing knowledge through blogging and mentorship.</p>
-              <p>When I'm not coding, I enjoy reading tech blogs, playing video games, and working on personal projects to enhance my skills.</p>
-          </div>
-        </div>
-    </section>
-    <section id="skills" class="bg-light py-5">
-      <div class="container">
-          <h2 class="text-center">Skills</h2>
-          <div class="row text-center mt-4">
-              <div class="col-md-4">
-                  <h4>Programming Languages</h4>
-                  <p>JavaScript, TypeScript, Python, Java, C++</p>
-              </div>
-              <div class="col-md-4">
-                  <h4>Frameworks & Libraries</h4>
-                  <p>Angular, Bootstrap, React, Node.js, Express.js</p>
-              </div>
-              <div class="col-md-4">
-                  <h4>Tools & Technologies</h4>
-                  <p>Git, GitHub, Docker, Firebase, MySQL, MongoDB</p>
-              </div>
-          </div>
-      </div>
-  </section>
-
-  <section id="projects" class="container py-5">
-    <h2 class="text-center">Projects</h2>
-    <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="row">
-                    <div class="col-lg-4 col-md-12">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/400" class="card-img-top" alt="Project 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Project 1</h5>
-                                <p class="card-text">Description of project 1.</p>
-                                <a href="#" class="btn btn-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 d-none d-lg-block">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/400" class="card-img-top" alt="Project 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Project 2</h5>
-                                <p class="card-text">Description of project 2.</p>
-                                <a href="#" class="btn btn-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 d-none d-lg-block">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/400" class="card-img-top" alt="Project 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Project 3</h5>
-                                <p class="card-text">Description of project 3.</p>
-                                <a href="#" class="btn btn-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              <p>I am a software developer with expertise in Angular, Bootstrap, and other modern web technologies. I
+                love solving problems and creating efficient solutions.</p>
+              <p>I specialize in frontend and backend development, with a strong focus on user experience, responsive
+                design, and performance optimization.</p>
+              <p>My interests include exploring new technologies, contributing to open-source projects, and sharing
+                knowledge through blogging and mentorship.</p>
+              <p>When I'm not coding, I enjoy reading tech blogs, watching movies, and working on personal projects to
+                enhance my skills.</p>
             </div>
-            
-            <div class="carousel-item">
-                <div class="row">
-                    <div class="col-lg-4 col-md-12">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/400" class="card-img-top" alt="Project 4">
-                            <div class="card-body">
-                                <h5 class="card-title">Project 4</h5>
-                                <p class="card-text">Description of project 4.</p>
-                                <a href="#" class="btn btn-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 d-none d-lg-block">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/400" class="card-img-top" alt="Project 5">
-                            <div class="card-body">
-                                <h5 class="card-title">Project 5</h5>
-                                <p class="card-text">Description of project 5.</p>
-                                <a href="#" class="btn btn-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 d-none d-lg-block">
-                        <div class="card">
-                            <img src="https://via.placeholder.com/400" class="card-img-top" alt="Project 6">
-                            <div class="card-body">
-                                <h5 class="card-title">Project 6</h5>
-                                <p class="card-text">Description of project 6.</p>
-                                <a href="#" class="btn btn-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          </div>
+        </section>
+        <section class="container">
+          <h2 class="text-left mb-4 pr-4">My Journey</h2>
+          <div class="row justify-content-left">
+            <div class="col-md-10">
+              <p class="fs-5">
+                My journey into the world of front-end development began with a college project — an online service for
+                paddy management and billing at Mandis. I explored the right tools and technologies to bring this idea
+                to life and successfully implemented it.
+              </p>
+              <p class="fs-5">
+                Since then, I have been fortunate to work on a variety of projects, each presenting unique challenges
+                and opportunities for innovation. These experiences have taught me the value of staying up-to-date with
+                the latest technologies and design trends to ensure that I can deliver cutting-edge solutions to my
+                clients.
+              </p>
             </div>
-        </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
-    </div>
-</section>
-<section id="experience" class="container py-5">
-  <h2 class="text-center mb-4">Experience</h2>
-  <div class="row">
-      <div class="col-md-12">
-          <div class="card mb-3">
-              <div class="card-body">
-                  <h5 class="card-title">Software Developer - XYZ Company</h5>
-                  <h6 class="text-muted">Jan 2022 - Present</h6>
-                  <p class="card-text">Developed web applications using Angular and Bootstrap. Implemented REST APIs and improved UI/UX.</p>
-              </div>
           </div>
-
-          <div class="card mb-3">
-              <div class="card-body">
-                  <h5 class="card-title">Frontend Intern - ABC Tech</h5>
-                  <h6 class="text-muted">June 2021 - Dec 2021</h6>
-                  <p class="card-text">Worked on responsive web designs and optimized website performance.</p>
-              </div>
-          </div>
-
-          <div class="card mb-3">
-              <div class="card-body">
-                  <h5 class="card-title">Freelance Web Developer</h5>
-                  <h6 class="text-muted">2020 - 2021</h6>
-                  <p class="card-text">Created multiple websites and web apps for clients using modern web technologies.</p>
-              </div>
-          </div>
+        </section>
       </div>
-  </div>
-</section>
-<section id="education" class="container py-5">
-  <h2 class="text-center mb-4">Education</h2>
-  <div class="row">
-      <div class="col-md-12">
-          <div class="card mb-3">
-              <div class="card-body">
-                  <h5 class="card-title">Bachelor of Technology in Computer Science</h5>
-                  <h6 class="text-muted">ABC University, 2018 - 2022</h6>
-                  <p class="card-text">Studied software development, data structures, algorithms, and web technologies.</p>
+      <div class="card  rounded m-2 bg-light">
+        <section id="skills" class=" py-5">
+          <div class="container">
+            <h2 class="text-center">Skills</h2>
+            <!-- <div class="col-lg-12 col-md-12 ">
+            <div class="card bg-light card-hover shadow"> -->
+            <div class="row text-left mt-4">
+              <div class="col-md-4">
+                <h4>Programming Languages</h4>
+                <p>JavaScript, TypeScript, C++, Java, C</p>
               </div>
-          </div>
-
-          <div class="card mb-3">
-              <div class="card-body">
-                  <h5 class="card-title">Full Stack Web Development Certification</h5>
-                  <h6 class="text-muted">XYZ Online Academy, 2021</h6>
-                  <p class="card-text">Completed an intensive course covering frontend and backend development using modern frameworks.</p>
+              <div class="col-md-3">
+                <h4>Frameworks & Libraries</h4>
+                <p>Angular, Bootstrap, .Net, Node.js, Express.js</p>
               </div>
-          </div>
-
-          <div class="card mb-3">
-              <div class="card-body">
-                  <h5 class="card-title">Advanced JavaScript Course</h5>
-                  <h6 class="text-muted">Udemy, 2020</h6>
-                  <p class="card-text">Learned advanced JavaScript concepts, ES6+, and asynchronous programming.</p>
+              <div class="col-md-3">
+                <h4>Tools & Technologies</h4>
+                <p>Git, GitHub, Firebase, SQL Server, MongoDB</p>
               </div>
+              <div class="col-md-2">
+                <h4>Other Tools</h4>
+                <p>Capacitor,Android Studio</p>
+              </div>
+            </div>
           </div>
+          <!-- </div>
+      </div> -->
+        </section>
       </div>
-  </div>
-</section>
-<section id="contact" class="container py-5">
-  <h2 class="text-center mb-4">Contact</h2>
-  <div class="row justify-content-center">
-      <div class="col-md-6">
-          <div class="card p-4 text-center">
-              <h5>Email</h5>
-              <p><a href="mailto:your.email@example.com">your.email example.com</a></p>
+      <div class="card rounded m-2 bg-light">
+        <section id="projects" class="container py-5 ">
+          <h2 class="text-center">Projects</h2>
+          <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row  m-4">
+                  <div class="col-lg-4 col-md-12 ">
+                    <div class="card rounded card-hover shadow bg-white text-dark" style="color: #f8f9fa">
+                      <img src="assets/img/logo.png" class="card-img-top img-fluid w-100 rounded-circle border mt-2"
+                        style="max-width: 150px; margin: auto;" alt="Project 1">
+                      <div class="card-body">
+                        <h5 class="card-title">Seva Gudi</h5>
+                        <p class="card-text">
+                          Service Provider system to find and book nearby services, built with Angular & Capacitor,
+                          using REST API and SQL Server for data management.
+                          <br>
+                        </p>
+                        <!-- <a href="#" class="btn btn-primary">View Project</a> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 d-none d-lg-block">
+                    <div class="card bg-white shadow card-hover ">
+                      <img src="assets\img\logo 512.png" class="card-img-top img-fluid w-100 mt-2 rounded-circle border"
+                        style="max-width: 130px; margin: auto;" alt="Project 2">
 
-              <h5>LinkedIn</h5>
-              <p><a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+                      <div class="card-body">
+                        <h5 class="card-title">KOT(Kitchen Order Ticket)</h5>
+                        <p class="card-text">Restaurant Management System – A system where waiters can take orders
+                          and submit them to the kitchen, developed using AngularJS with Capacitor, and data managed via
+                          API using SQL Server.</p>
+                        <!-- <a href="#" class="btn btn-primary">View Project</a> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 d-none d-lg-block">
+                    <div class="card bg-white shadow card-hover">
+                      <img src="assets\img\icon 512.png" class="card-img-top img-fluid w-100 mt-2 rounded-circle border"
+                        style="max-width: 100px; margin: auto;" alt="Project 3">
 
-              <h5>GitHub</h5>
-              <p><a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></p>
+                      <!-- <img src="https://via.placeholder.com/400" class="card-img-top" alt="Project 3"> -->
+                      <div class="card-body">
+                        <h5 class="card-title">Paddy Management </h5>
+                        <p class="card-text">Paddy Sale and Purchase System – Facilitates the sale and purchase of paddy
+                          with report generation for accurate measurement and detailed information. Implemented using
+                          the .NET Framework and MS Access database.</p>
+                        <!-- <a href="#" class="btn btn-primary">View Project</a> -->
+                      </div>
+                    </div>
+                  </div>
 
-              <h5>Phone</h5>
-              <p><a href="tel:+1234567890">+1234567890</a></p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row m-4">
+                  <div class="col-lg-4 col-md-12">
+                    <div class="card bg-white shadow card-hover">
+                      <img src="assets\img\landing3.png" class="card-img-top img-fluid w-100 mt-2 rounded-circle border"
+                        style="max-width: 200px; margin: auto;" alt="Project 4">
+
+                      <!-- <img src="assets\img\landing3.png" class="card-img-top" alt="Project 4"> -->
+                      <div class="card-body">
+                        <h5 class="card-title">Insta Messanger</h5>
+                        <p class="card-text">Sale and Purchase of Paddy system with report generation that ensures
+                          accurate measurement and detailed information. Developed using .NET Framework with MS Access
+                          database.</p>
+                        <!-- <a href="#" class="btn btn-primary">View Project</a> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 d-none d-lg-block">
+                    <div class="card bg-white shadow card-hover">
+                      <!-- <img src="https://via.placeholder.com/400" class="card-img-top" alt="Project 5"> -->
+                      <img src="assets\img\icons 521.png"
+                        class="card-img-top img-fluid w-100 mt-2 rounded-circle border"
+                        style="max-width: 150px; margin: auto;" alt="Project 5">
+
+                      <div class="card-body">
+                        <h5 class="card-title">Product Tracking System </h5>
+                        <p class="card-text">Product tracking using QR scanning and Google Maps integration in AGM. A
+                          hybrid app supporting Android, iOS, and Web platforms. REST APIs handled using the Core HTTP
+                          package.</p>
+                        <!-- <a href="#" class="btn btn-primary">View Project</a> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 d-none d-lg-block">
+                    <div class="card bg-white shadow card-hover">
+                      <!-- <img src="assets\img\icon-96x96.png" class="card-img-top" alt="Project 6"> -->
+                      <img src="assets\img\icon-72x72.png"
+                        class="card-img-top img-fluid w-100 mt-2 rounded-circle border"
+                        style="max-width: 150px; margin: auto;" alt="Project 6">
+
+                      <div class="card-body">
+                        <h5 class="card-title">Chhattisgarh Aushdhi Darpan</h5>
+                        <p class="card-text">
+                          A government dashboard project showcasing detailed reports on Drugs, Equipment, and
+                          Infrastructure, streamlining operations and enhancing efficiency.
+                        </p> <!-- <a href="#" class="btn btn-primary">View Project</a> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
           </div>
+        </section>
       </div>
-  </div>
-</section>
-<button (click)="scrollToTop()" id="scrollTopBtn" class="btn btn-primary">↑ Top</button>
+      <div class="card rounded m-2 bg-light">
 
-<button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
-  <span class="carousel-control-prev-icon"></span>
-</button>
-<button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
-  <span class="carousel-control-next-icon"></span>
-</button>
+        <section id="experience" class="container py-5">
+          <h2 class="text-center mb-4">Experience</h2>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card shadow card-hover bg-white mb-3 text-dark" style="color: #f8f9fa">
+                <div class="card-body">
+                  <h5 class="card-title">Internship: Shivam info soft PVT.</h5>
+                  <h6 class="text-muted">Duration: Mar 2022 - sep 2022</h6>
+                  <p class="card-text">
+                    As an intern, I worked on Angular web and mobile app projects, contributing to front-end development
+                    and maintaining legacy systems. My performance led to a formal job offer from the company.</p>
+                </div>
+              </div>
+
+              <div class="card shadow card-hover bg-white mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Front-end Developer - Shivam info soft PVT.</h5>
+                  <h6 class="text-muted">Duration: Sep 2022 – Sep 2023</h6>
+                  <p class="card-text">1. Implemented features for various applications using Angular 14 and SQL
+                    Server.<br>
+
+                    2. Collaborated with quality engineers, product managers, and support teams to ensure high software
+                    quality during development.</p>
+                </div>
+              </div>
+
+              <div class="card shadow card-hover bg-white mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Programmer - CGMSC </h5>
+                  <h6 class="text-muted">Duration: Jan 2025 - Present</h6>
+                  <p class="card-text">Created multiple websites and web apps for clients using modern web technologies.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="card  rounded m-2 bg-light">
+
+        <section id="education" class="container py-5">
+          <h2 class="text-center mb-4">Education</h2>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card shadow card-hover bg-white mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Master of Computer Applications (MCA)</h5>
+                  <h6 class="text-muted">Pt.Ravishankar Shukla University, Raipur:- MAY-JUN - 2022</h6>
+                  <p class="card-text">During my MCA, I focused on mastering different programming languages ​​and
+                    enhancing my logical thinking through hands-on project work. This practical exposure helped me gain
+                    a
+                    deeper understanding of software development and problem-solving techniques. With a 76% score,
+                    I have built strong technical skills and a solid academic background.</p>
+                </div>
+              </div>
+              <div class="card shadow card-hover bg-white mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Bachelor of Computer Computer Applications (BCA)</h5>
+
+                  <h6 class="text-muted">Netaji Subhash Mahavidyalaya belbhatha abhanpur Raipur:- MAR - APR - 2019</h6>
+                  <p class="card-text">Throughout my BCA, I gained knowledge in different programming languages and
+                    developed
+                    logical thinking by building real-time projects. These experiences helped me understand the
+                    practical side
+                    of development and improved my problem-solving skills. Scoring 65%, I have built a solid foundation
+                    for a
+                    successful career in software development.</p>
+                </div>
+              </div>
+              <div class="card shadow card-hover bg-white mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Higher secondary school Certificate examination(12 th) </h5>
+                  <h6 class="text-muted">CG Board of secondary education,Raipur:- Feb-Mar, 2015 </h6>
+                  <p class="card-text">Despite scoring 55% in Biology, I gained a solid understanding of the subject and
+                    developed
+                    analytical thinking through practical and theoretical learning. This foundation helped me adapt to
+                    problem-solving tasks,
+                    and over time, I discovered my passion for technology, which led me to pursue a career in
+                    development.</p>
+                  <!-- <p class="card-text">Studied software development, data structures, algorithms, and web technologies.</p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+      <div class="card rounded m-2 bg-light">
+        <section id="contact" class="container py-5">
+          <h2 class="text-center mb-5">Get in Touch with Me</h2>
+          <div class="row justify-content-center g-4">
+
+            <!-- Email Card -->
+            <div class="col-md-3 col-sm-6">
+              <div class="card text-center shadow card-hover h-100 border-0">
+                <div class="card-body">
+                  <div class="text-primary mb-3 " style="font-size: 2.5rem;">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <h5 class="card-title">Email</h5>
+                  <p class="card-text">
+                    <a href="mailto:lomeshwarsahu1996@gmail.com">lomeshwarsahu1996&#64;gmail.com</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phone Card -->
+            <div class="col-md-3 col-sm-6">
+              <div class="card text-center shadow card-hover h-100 border-0">
+                <div class="card-body">
+                  <div class="text-success mb-3" style="font-size: 2.5rem;">
+                    <i class="fas fa-phone-alt" style="transform: rotate(100deg);"></i>
+
+                  </div>
+                  <h5 class="card-title">Phone</h5>
+                  <p class="card-text">
+                    <a href="tel:+919340414187">+91 9340414187</a> /
+                    <a href="tel:+918719082655">+91 8719082655</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- LinkedIn Card -->
+            <div class="col-md-3 col-sm-6">
+              <div class="card text-center shadow card-hover h-100 border-0">
+                <div class="card-body">
+                  <div class="text-info mb-3" style="font-size: 2.5rem;">
+                    <i class="fab fa-linkedin"></i>
+                  </div>
+                  <h5 class="card-title">LinkedIn</h5>
+                  <p class="card-text">
+                    <a href="http://surl.li/kxpct" target="_blank">linkedin.http://surl.li/kxpct</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- GitHub Card -->
+            <div class="col-md-3 col-sm-6">
+              <div class="card text-center shadow card-hover h-100 border-0">
+                <div class="card-body">
+                  <div class="text-dark mb-3" style="font-size: 2.5rem;">
+                    <i class="fab fa-github"></i>
+                  </div>
+                  <h5 class="card-title">GitHub</h5>
+                  <p class="card-text">
+                    <a href="https://github.com/Lomeshwarsahu" target="_blank">https://github.com/Lomeshwarsahu</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </div>
+
+      <!-- <button (click)="scrollToSection('home')" class="scroll-top-btn mb-4">
+  <i class="fas fa-arrow-up"></i>
+</button> -->
 
     </div>
 
   </div>
 
 </div>
-
+<button (click)="scrollToTop()" class="scroll-top-btn mb-4">
+  <i class="fas fa-arrow-up"></i>
+</button>
 <div class="pt-2">
-  <footer class="bg-secondary text-white text-center fixed-bottom"  >
+  <footer class=" text-white text-center fixed-bottom" style="background-color: #a583bb">
     <div class="container p-2">
       <p class="mb-0">&copy; 2024 My Portfolio. All Rights Reserved.</p>
     </div>
@@ -347,8 +496,3 @@
 </div>
 
 <router-outlet></router-outlet>
-
-
-
-
-  
