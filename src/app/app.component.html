@@ -1,7 +1,13 @@
 <nav class="navbar navbar-expand-lg" style="background-color: #480878;">
   <div class="container-fluid">
     <!-- Logo -->
-    <p class="navbar-brand text-bold fw-bold" style="color: #f8f9fa">Lomeshwar Sahu</p>
+    <!-- <p class="navbar-brand text-bold fw-bold" style="color: #f8f9fa">Lomeshwar Sahu</p>style="width: 15%;" -->
+     <div class="text-center justify-content-center icondiv" >
+      <p class="navbar-brand text-bold fw-bold">
+        <img src="\assets\img\logo1.png" class="img-fluid item-img img_size"  style="background-color: #480878; border: solid #f8f9fa; border-radius: 30px;" >
+      </p>
+     </div>
+ 
 
 
     <!-- Toggle Button (For Mobile View) -->
@@ -71,8 +77,8 @@
       </div>
       <div class="offcanvas-body  ">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link " (click)="navigateAndClose('home')" routerLinkActive="active"
-             [ngClass]="{'active': activeMenu === 'home'}">Home</a>
+          <li class="nav-item"><a class="nav-link" (click)="navigateAndClose('home')" 
+            routerLinkActive="active" [ngClass]="{'active': activeMenu === 'home'}">Home</a>
           </li>
           <li class="nav-item"><a class="nav-link" (click)="navigateAndClose('about')"
               routerLinkActive="active"   [ngClass]="{'active': activeMenu === 'about'}">About</a></li>
@@ -488,7 +494,7 @@
   <i class="fas fa-arrow-up"></i>
 </button>
 <div class="pt-2">
-  <footer class=" text-white text-center fixed-bottom" style="background-color: #a583bb">
+  <footer class=" text-white text-center fixed-bottom" style="background-color: #747275">
     <div class="container p-2">
       <p class="mb-0">&copy; 2024 My Portfolio. All Rights Reserved.</p>
     </div>

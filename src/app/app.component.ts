@@ -10,19 +10,22 @@ import * as bootstrap from 'bootstrap';
 })
 export class AppComponent {
   isDarkMode = false;
-  activeMenu: string = 'home';
+  activeMenu:any;
   @ViewChild('offcanvasRef', { static: false }) offcanvasRef!: ElementRef;
   private bsOffcanvas!: Offcanvas;
 
-  // activeMenu: string = 'home';
+  Menu: string = 'home';
   projects = [
     { title: 'Project 1', description: 'Description of project 1', image: 'https://via.placeholder.com/400', link: '#' },
     { title: 'Project 2', description: 'Description of project 2', image: 'https://via.placeholder.com/400', link: '#' },
     { title: 'Project 3', description: 'Description of project 3', image: 'https://via.placeholder.com/400', link: '#' }
   ];
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+
+  }
 
   ngOnInit() {
+    // localStorage.setItem('activeMenu', this.Menu);
     const storedMenu = localStorage.getItem('activeMenu');
     if (storedMenu) {
       this.activeMenu = storedMenu;
@@ -75,9 +78,11 @@ export class AppComponent {
   }
  
 navigateAndClose(fragment: string) {
+ 
+
+    localStorage.setItem('activeMenu', fragment);
   const el = document.getElementById('offcanvasNavbar');
   const bsOffcanvas = Offcanvas.getInstance(el!) || new Offcanvas(el!);
-  localStorage.setItem('activeMenu', fragment);
   // Hide the offcanvas
   bsOffcanvas.hide();
 

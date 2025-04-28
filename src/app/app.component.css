@@ -118,5 +118,23 @@ body {
 /* animation */
 
 
+/* .icondiv{
+  width: 15%;
+} */
+@media (min-width: 992px) {
+  .icondiv{
+    width: 15%;
+  }
+  .img_size{
+   width:30%;
+  }
+}
 
-  
+@media (max-width: 768px) {
+  .icondiv{
+    width: 30%;
+  }
+  .img_size{
+    width:50%;
+   }
+}
