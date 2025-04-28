@@ -108,25 +108,103 @@
   </div>
 </nav>
 
-<!-- (click)="navigateAndClose('home')" -->
+<!-- (click)="navigateAndClose('home')" style="background-color: #875ca4;"-->
 <div class="card shadow mb-4" >
   <div class="card body color transition-all hover-shadow-lg">
     <div>
-      <section class="card border rounded" style="background-color: #875ca4;">
-        <div id="home" class="d-flex align-items-center justify-content-center text-center text-white border rounded"
-          style="height: 100vh;">
-          <div>
+
+      
+      <section id="welcome-section" class="card border rounded" style="position: relative; overflow: hidden;">
+
+        <!-- Background Image -->
+        <div style="background: url('assets/img/Welcome.png') center/cover no-repeat; position: absolute; width: 100%; height: 100%; z-index: 0;"></div>
+      
+        <!-- Black Transparent Overlay -->
+        <div style="background-color: rgba(0, 0, 0, 0.5); position: absolute; width: 100%; height: 100%; z-index: 1;"></div>
+      
+        <!-- Main Content -->
+        <div id="home" class="d-flex flex-column align-items-center justify-content-center text-center text-white border rounded" style="height: 100vh; position: relative; z-index: 2;">
+          <div data-aos="fade-up">
             <h1>Welcome to My Portfolio</h1>
             <p>Hi, I'm Lomeshwar Sahu, a passionate programmer who loves building amazing web applications.</p>
-            <!-- <a href="#about" class="btn btn-light">Learn More</a> -->
-            <a class="btn btn-light" (click)="navigateAndClose('about')"
-              >Learn More</a>
+            <a class="btn btn-light" (click)="navigateAndClose('about')">Learn More</a>
           </div>
         </div>
+      
       </section>
-      <div class="card rounded m-2  transition-all hover-shadow-lg text-dark" style="color: #f8f9fa">
+      
+      <!-- <section id="welcome-section" class="card border rounded" style="position: relative; overflow: hidden;">
 
+        <div style="background: url('assets/img/Welcome.png') center/cover no-repeat; position: absolute; width: 100%; height: 100%; opacity: 0.3;"></div>
+      
+        <div id="home" class="d-flex flex-column align-items-center justify-content-center text-center text-white border rounded" style="height: 100vh; position: relative; z-index: 1;">
+          
+          <div data-aos="fade-up">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Hi, I'm Lomeshwar Sahu, a passionate programmer who loves building amazing web applications.</p>
+            <a class="btn btn-light" (click)="navigateAndClose('about')">Learn More</a>
+          </div>
+      
+        </div>
+      
+      </section> -->
+      
+      <!-- <section id="welcome-section" class="card border rounded" >
+        <div id="home" class="d-flex flex-column align-items-center justify-content-center text-center text-white border rounded" style="height: 100vh;">
+          
+          <img src="\assets\img\Welcome.png" alt="Welcome" class="img-fluid mb-4" style="max-width: 300px;"> 
+          
+          <div data-aos="fade-up">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Hi, I'm Lomeshwar Sahu, a passionate programmer who loves building amazing web applications.</p>
+            <a class="btn btn-light" (click)="navigateAndClose('about')">Learn More</a>
+          </div>
+      
+        </div>
+      </section>
+      
+
+      <section id="welcome-section" class="card border rounded" >
+
+        <div id="home" class="d-flex align-items-center justify-content-center text-center text-white border rounded"
+          style="height: 100vh;">
+          <div data-aos="fade-up">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Hi, I'm Lomeshwar Sahu, a passionate programmer who loves building amazing web applications.</p>
+            <a class="btn btn-light" (click)="navigateAndClose('about')"
+              >Learn More</a>
+         </div>
+        </div>
+      </section> -->
+      <div class="card rounded m-2  transition-all hover-shadow-lg text-dark" style="color: #f8f9fa">
         <section id="about" class="container py-5">
+          <div class="row align-items-center">
+        
+            <!-- Left Image -->
+            <div class="col-md-6" data-aos="fade-right" data-aos-duration="1000">
+              <div class="text-center" style="max-width: 300px; margin: auto;">
+                <img src="assets/img/photo_2025-03-04_13-27-30.jpg" alt="Profile Image"
+                  class="img-fluid rounded-circle border w-100" style="object-fit: cover; aspect-ratio: 1/1;">
+              </div>
+            </div>
+        
+            <!-- Right Text -->
+            <div class="col-md-6" data-aos="fade-left" data-aos-duration="1000">
+              <h2>About Me</h2>
+              <p>I am a software developer with expertise in Angular, Bootstrap, and other modern web technologies. I
+                love solving problems and creating efficient solutions.</p>
+              <p>I specialize in frontend and backend development, with a strong focus on user experience, responsive
+                design, and performance optimization.</p>
+              <p>My interests include exploring new technologies, contributing to open-source projects, and sharing
+                knowledge through blogging and mentorship.</p>
+              <p>When I'm not coding, I enjoy reading tech blogs, watching movies, and working on personal projects to
+                enhance my skills.</p>
+            </div>
+        
+          </div>
+        </section>
+        
+        <!-- <section id="about" class="container py-5">
           <div class="row">
 
             <div class="col-md-6">
@@ -137,10 +215,10 @@
               </div>
 
 
-              <!-- <img  class="w-100 border rounded-circle " src="assets/img/photo_2025-03-04_13-27-30.jpg" alt="Profile Image" > -->
-              <!-- <img src="assets/img/photo_2025-03-04_13-27-30.jpg" alt="Profile Image" class="img-fluid rounded"> -->
+              <img  class="w-100 border rounded-circle " src="assets/img/photo_2025-03-04_13-27-30.jpg" alt="Profile Image" >
+              <img src="assets/img/photo_2025-03-04_13-27-30.jpg" alt="Profile Image" class="img-fluid rounded">
 
-              <!-- <img src="src\assets\img\img1.jpg" alt="Profile Image" class="img-fluid rounded"> -->
+              <img src="src\assets\img\img1.jpg" alt="Profile Image" class="img-fluid rounded">
             </div>
             <div class="col-md-6">
               <h2>About Me</h2>
@@ -154,17 +232,17 @@
                 enhance my skills.</p>
             </div>
           </div>
-        </section>
-        <section class="container">
+        </section> -->
+        <section class="container" >
           <h2 class="text-left mb-4 pr-4">My Journey</h2>
           <div class="row justify-content-left">
             <div class="col-md-10">
-              <p class="fs-5">
+              <p class="fs-5" data-aos="fade-right" data-aos-duration="1000">
                 My journey into the world of front-end development began with a college project — an online service for
                 paddy management and billing at Mandis. I explored the right tools and technologies to bring this idea
                 to life and successfully implemented it.
               </p>
-              <p class="fs-5">
+              <p class="fs-5" data-aos="fade-left" data-aos-duration="1000">
                 Since then, I have been fortunate to work on a variety of projects, each presenting unique challenges
                 and opportunities for innovation. These experiences have taught me the value of staying up-to-date with
                 the latest technologies and design trends to ensure that I can deliver cutting-edge solutions to my
@@ -176,7 +254,7 @@
       </div>
       <div class="card  rounded m-2 bg-light">
         <section id="skills" class=" py-5">
-          <div class="container">
+          <div class="container" data-aos="zoom-in-left">
             <h2 class="text-center">Skills</h2>
             <!-- <div class="col-lg-12 col-md-12 ">
             <div class="card bg-light card-hover shadow"> -->
@@ -326,7 +404,7 @@
           <h2 class="text-center mb-4">Experience</h2>
           <div class="row">
             <div class="col-md-12">
-              <div class="card shadow card-hover bg-white mb-3 text-dark" style="color: #f8f9fa">
+              <div class="card shadow card-hover bg-white mb-3 text-dark" style="color: #f8f9fa" data-aos="fade-left">
                 <div class="card-body">
                   <h5 class="card-title">Internship: Shivam info soft PVT.</h5>
                   <h6 class="text-muted">Duration: Mar 2022 - sep 2022</h6>
@@ -336,7 +414,7 @@
                 </div>
               </div>
 
-              <div class="card shadow card-hover bg-white mb-3">
+              <div class="card shadow card-hover bg-white mb-3" data-aos="fade-right">
                 <div class="card-body">
                   <h5 class="card-title">Front-end Developer - Shivam info soft PVT.</h5>
                   <h6 class="text-muted">Duration: Sep 2022 – Sep 2023</h6>
@@ -348,7 +426,7 @@
                 </div>
               </div>
 
-              <div class="card shadow card-hover bg-white mb-3">
+              <div class="card shadow card-hover bg-white mb-3" data-aos="fade-left">
                 <div class="card-body">
                   <h5 class="card-title">Programmer - CGMSC </h5>
                   <h6 class="text-muted">Duration: Jan 2025 - Present</h6>

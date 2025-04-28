@@ -2,6 +2,9 @@ import { Component,ElementRef,HostListener, ViewChild  } from '@angular/core';
 import { Offcanvas } from 'bootstrap';
 import { Router, NavigationEnd } from '@angular/router';
 import * as bootstrap from 'bootstrap';
+// import * as AOS from 'aos';
+
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -25,6 +28,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
+      // AOS.init();
     // localStorage.setItem('activeMenu', this.Menu);
     const storedMenu = localStorage.getItem('activeMenu');
     if (storedMenu) {
