@@ -16,7 +16,7 @@ export class AppComponent {
   activeMenu:any;
   @ViewChild('offcanvasRef', { static: false }) offcanvasRef!: ElementRef;
   private bsOffcanvas!: Offcanvas;
-
+  selectedColor:any;
   Menu: string = 'home';
   projects = [
     { title: 'Project 1', description: 'Description of project 1', image: 'https://via.placeholder.com/400', link: '#' },
@@ -28,6 +28,10 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    this.selectedColor = sessionStorage.getItem('selectedColor');
+    if(this.selectedColor != 'linear-gradient(1deg, rgb(18, 166, 210) 15%, rgb(49, 65, 252) 100%)'){
+      document.documentElement.style.setProperty('--theme-gradient', this.selectedColor );
+    }
       // AOS.init();
     // localStorage.setItem('activeMenu', this.Menu);
     const storedMenu = localStorage.getItem('activeMenu');
@@ -133,5 +137,17 @@ openOffcanvas() {
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-  
+  gradients: string[] = [
+    'linear-gradient(1deg, rgb(18, 166, 210) 15%, rgb(49, 65, 252) 100%)',
+    'linear-gradient(180deg, #FF6000 11%, #FFA559 100%)',
+    'linear-gradient(rgb(93, 18, 210) 11%, rgb(184, 49, 252) 100%)', 
+    'linear-gradient(180deg,rgb(126, 18, 148) 11%,rgb(236, 168, 253) 100%)',
+
+  ];
+
+  setTheme(gradient: string) {
+    sessionStorage.setItem('selectedColor',gradient);
+    document.documentElement.style.setProperty('--theme-gradient', gradient);
+    
+  }
 }
