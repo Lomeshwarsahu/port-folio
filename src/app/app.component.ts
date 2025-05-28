@@ -141,7 +141,7 @@ openOffcanvas() {
     'linear-gradient(1deg, rgb(18, 166, 210) 15%, rgb(49, 65, 252) 100%)',
     'linear-gradient(180deg, #FF6000 11%, #FFA559 100%)',
     'linear-gradient(rgb(93, 18, 210) 11%, rgb(184, 49, 252) 100%)', 
-    'linear-gradient(180deg,rgb(126, 18, 148) 11%,rgb(236, 168, 253) 100%)',
+    'linear-gradient(180deg,rgb(182, 35, 162) 11%,rgb(228, 156, 247) 100%)',
 
   ];
 

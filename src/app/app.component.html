@@ -1,19 +1,4 @@
-<!-- <div class="container-fluid theme-navbar px-2 py-1">
-  <div class="row align-items-center text-center text-md-start">
 
-
-    <div class="col-12 col-md-3 d-flex justify-content-center justify-content-md-start mb-2 mb-md-0">
-      <div class="d-flex">
-        <input type="button" class="color-input border rounded-circle me-2" [style.background]="gradients[0]"
-          (click)="setTheme(gradients[0])">
-        <input type="button" class="color-input border rounded-circle me-2" [style.background]="gradients[1]"
-          (click)="setTheme(gradients[1])">
-        <input type="button" class="color-input border rounded-circle" [style.background]="gradients[2]"
-          (click)="setTheme(gradients[2])">
-      </div>
-    </div>
-  </div>
-</div> -->
 
 <nav class="navbar navbar-expand-lg theme-navbar">
   <div class="container-fluid">
@@ -123,14 +108,6 @@
         </ul>
       </div>
     </div>
-
-    
-    <!-- <div class="" style="padding-left: 4px;">
-      <button (click)="toggleTheme()" class="btn btn-sm me-1 btn_pa"
-        [ngClass]="{'btn-outline-light': isDarkMode, 'btn-outline-dark': !isDarkMode}">
-        <i [ngClass]="isDarkMode ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill'"></i>
-      </button>
-    </div> -->
   </div>
 </nav>
 
@@ -148,9 +125,9 @@
       
         <div id="home" class="d-flex flex-column align-items-center justify-content-center text-center text-white border rounded" style="height: 100vh; position: relative; z-index: 2;">
           <div data-aos="fade-up" data-aos-duration="1000">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Hi, I'm Lomeshwar Sahu, a passionate programmer who loves building amazing web applications.</p>
-            <a class="btn btn-light" (click)="navigateAndClose('about')">Learn More</a>
+            <h1  class="text_font">Welcome to My Portfolio</h1>
+            <p class="text_font">Hi, I'm Lomeshwar Sahu, a passionate programmer who loves building amazing web applications.</p>
+            <a class="btn btn-lightt theme-btn text_font" (click)="navigateAndClose('about')">Learn More</a>
           </div>
         </div>
       
@@ -214,14 +191,14 @@
         
             <!-- Right Text -->
             <div class="col-md-6" data-aos="fade-up" data-aos-duration="1000">
-              <h2>About Me</h2>
-              <p>I am a software developer with expertise in Angular, Bootstrap, and other modern web technologies. I
+              <h2 class="text_font">About Me</h2>
+              <p class="text_font">I am a software developer with expertise in Angular, Bootstrap, and other modern web technologies. I
                 love solving problems and creating efficient solutions.</p>
-              <p>I specialize in frontend and backend development, with a strong focus on user experience, responsive
+              <p class="text_font">I specialize in frontend and backend development, with a strong focus on user experience, responsive
                 design, and performance optimization.</p>
-              <p>My interests include exploring new technologies, contributing to open-source projects, and sharing
+              <p class="text_font">My interests include exploring new technologies, contributing to open-source projects, and sharing
                 knowledge through blogging and mentorship.</p>
-              <p>When I'm not coding, I enjoy reading tech blogs, watching movies, and working on personal projects to
+              <p class="text_font">When I'm not coding, I enjoy reading tech blogs, watching movies, and working on personal projects to
                 enhance my skills.</p>
             </div>
         
@@ -261,12 +238,12 @@
           <h2 class="text-left mb-4 pr-4">My Journey</h2>
           <div class="row justify-content-left">
             <div class="col-md-10">
-              <p class="fs-5" data-aos="fade-up" data-aos-duration="1000">
+              <p class="fs-5 text_font" data-aos="fade-up" data-aos-duration="1000">
                 My journey into the world of front-end development began with a college project — an online service for
                 paddy management and billing at Mandis. I explored the right tools and technologies to bring this idea
                 to life and successfully implemented it.
               </p>
-              <p class="fs-5" data-aos="fade-up" data-aos-duration="1000">
+              <p class="fs-5 text_font" data-aos="fade-up" data-aos-duration="1000">
                 Since then, I have been fortunate to work on a variety of projects, each presenting unique challenges
                 and opportunities for innovation. These experiences have taught me the value of staying up-to-date with
                 the latest technologies and design trends to ensure that I can deliver cutting-edge solutions to my
@@ -284,20 +261,20 @@
             <div class="card bg-light card-hover shadow"> -->
             <div class="row text-left mt-4">
               <div class="col-md-4">
-                <h4>Programming Languages</h4>
-                <p>JavaScript, TypeScript, C++, Java, C</p>
+                <h4 >Programming Languages</h4>
+                <p class="text_font">JavaScript, TypeScript, C++, Java, C</p>
               </div>
               <div class="col-md-3">
                 <h4>Frameworks & Libraries</h4>
-                <p>Angular, Bootstrap, .Net, Node.js, Express.js</p>
+                <p class="text_font">Angular, Bootstrap, .Net, Node.js, Express.js</p>
               </div>
               <div class="col-md-3">
                 <h4>Tools & Technologies</h4>
-                <p>Git, GitHub, Firebase, SQL Server, MongoDB</p>
+                <p class="text_font">Git, GitHub, Firebase, SQL Server, MongoDB</p>
               </div>
               <div class="col-md-2">
                 <h4>Other Tools</h4>
-                <p>Capacitor,Android Studio</p>
+                <p class="text_font">Capacitor,Android Studio</p>
               </div>
             </div>
           </div>
@@ -317,8 +294,8 @@
                       <img src="assets/img/logo.png" class="card-img-top img-fluid w-100 rounded-circle border mt-2"
                         style="max-width: 150px; margin: auto;" alt="Project 1">
                       <div class="card-body">
-                        <h5 class="card-title">Seva Gudi</h5>
-                        <p class="card-text">
+                        <h5 class="card-title gradient-heading">Seva Gudi</h5>
+                        <p class="card-text text_font">
                           Service Provider system to find and book nearby services, built with Angular & Capacitor,
                           using REST API and SQL Server for data management.
                           <br>
@@ -333,8 +310,8 @@
                         style="max-width: 130px; margin: auto;" alt="Project 2">
           
                       <div class="card-body">
-                        <h5 class="card-title">KOT(Kitchen Order Ticket)</h5>
-                        <p class="card-text">Restaurant Management System – A system where waiters can take orders
+                        <h5 class="card-title gradient-heading">KOT(Kitchen Order Ticket)</h5>
+                        <p class="card-text text_font">Restaurant Management System – A system where waiters can take orders
                           and submit them to the kitchen, developed using AngularJS with Capacitor, and data managed via
                           API using SQL Server.</p>
                         <!-- <a href="#" class="btn btn-primary">View Project</a> -->
@@ -348,8 +325,8 @@
           
                       <!-- <img src="https://via.placeholder.com/400" class="card-img-top" alt="Project 3"> -->
                       <div class="card-body">
-                        <h5 class="card-title">Paddy Management </h5>
-                        <p class="card-text">Paddy Sale and Purchase System – Facilitates the sale and purchase of paddy
+                        <h5 class="card-title gradient-heading">Paddy Management </h5>
+                        <p class="card-text text_font">Paddy Sale and Purchase System – Facilitates the sale and purchase of paddy
                           with report generation for accurate measurement and detailed information. Implemented using
                           the .NET Framework and MS Access database.</p>
                         <!-- <a href="#" class="btn btn-primary">View Project</a> -->
@@ -369,8 +346,8 @@
           
                       <!-- <img src="assets\img\landing3.png" class="card-img-top" alt="Project 4"> -->
                       <div class="card-body">
-                        <h5 class="card-title">Insta Messanger</h5>
-                        <p class="card-text">Sale and Purchase of Paddy system with report generation that ensures
+                        <h5 class="card-title gradient-heading">Insta Messanger</h5>
+                        <p class="card-text text_font">Sale and Purchase of Paddy system with report generation that ensures
                           accurate measurement and detailed information. Developed using .NET Framework with MS Access
                           database.</p>
                         <!-- <a href="#" class="btn btn-primary">View Project</a> -->
@@ -384,8 +361,8 @@
                         style="max-width: 150px; margin: auto;" alt="Project 5">
           
                       <div class="card-body">
-                        <h5 class="card-title">Product Tracking System </h5>
-                        <p class="card-text">Product tracking using QR scanning and Google Maps integration in AGM. A
+                        <h5 class="card-title gradient-heading">Product Tracking System </h5>
+                        <p class="card-text text_font">Product tracking using QR scanning and Google Maps integration in AGM. A
                           hybrid app supporting Android, iOS, and Web platforms. REST APIs handled using the Core HTTP
                           package.</p>
                         <!-- <a href="#" class="btn btn-primary">View Project</a> -->
@@ -399,8 +376,8 @@
                         style="max-width: 150px; margin: auto;" alt="Project 6">
           
                       <div class="card-body">
-                        <h5 class="card-title">Chhattisgarh Aushdhi Darpan</h5>
-                        <p class="card-text">
+                        <h5 class="card-title gradient-heading">Chhattisgarh Aushdhi Darpan</h5>
+                        <p class="card-text text_font">
                           A government dashboard project showcasing detailed reports on Drugs, Equipment, and
                           Infrastructure, streamlining operations and enhancing efficiency.
                         </p> <!-- <a href="#" class="btn btn-primary">View Project</a> -->
@@ -423,14 +400,14 @@
       <div class="card rounded m-2 bg-white ">
 
         <section id="experience" class="container py-5">
-          <h2 class="text-center mb-4">Experience</h2>
+          <h2 class="text-center mb-4 ">Experience</h2>
           <div class="row">
             <div class="col-md-12">
               <div class="card shadow-lg border-0 card-hover bg-white mb-3 text-dark" style="color: #f8f9fa" data-aos="fade-up" data-aos-duration="1000">
                 <div class="card-body">
-                  <h5 class="card-title">Internship: Shivam info soft PVT.</h5>
+                  <h5 class="card-title gradient-heading">Internship: Shivam info soft PVT.</h5>
                   <h6 class="text-muted">Duration: Mar 2022 - sep 2022</h6>
-                  <p class="card-text">
+                  <p class="card-text text_font">
                     As an intern, I worked on Angular web and mobile app projects, contributing to front-end development
                     and maintaining legacy systems. My performance led to a formal job offer from the company.</p>
                 </div>
@@ -438,9 +415,9 @@
 
               <div class="card shadow-lg border-0 card-hover bg-white mb-3" data-aos="fade-up" data-aos-duration="1000">
                 <div class="card-body">
-                  <h5 class="card-title">Front-end Developer - Shivam info soft PVT.</h5>
-                  <h6 class="text-muted">Duration: Sep 2022 – Sep 2023</h6>
-                  <p class="card-text">1. Implemented features for various applications using Angular 14 and SQL
+                  <h5 class="card-title gradient-heading">Front-end Developer - Shivam info soft PVT.</h5>
+                  <h6 class="text-muted text_font">Duration: Sep 2022 – Sep 2023</h6>
+                  <p class="card-text text_font">1. Implemented features for various applications using Angular 14 and SQL
                     Server.<br>
 
                     2. Collaborated with quality engineers, product managers, and support teams to ensure high software
@@ -450,7 +427,7 @@
 
               <div class="card shadow-lg border-0 card-hover bg-white mb-3" data-aos="fade-up" data-aos-duration="1000">
                 <div class="card-body">
-                  <h5 class="card-title">Programmer - CGMSC </h5>
+                  <h5 class="card-title gradient-heading">Programmer - CGMSC </h5>
                   <h6 class="text-muted">Duration: Jan 2025 - Present</h6>
                   <p class="card-text">Created multiple websites and web apps for clients using modern web technologies.
                   </p>
@@ -463,14 +440,14 @@
       <div class="card  rounded m-2 bg-white ">
 
         <section id="education" class="container py-5">
-          <h2 class="text-center mb-4">Education</h2>
+          <h2 class="text-center mb-4 ">Education</h2>
           <div class="row">
             <div class="col-md-12">
               <div class="card shadow-lg border-0 card-hover bg-white mb-3" data-aos="fade-up" data-aos-duration="1000">
                 <div class="card-body">
-                  <h5 class="card-title">Master of Computer Applications (MCA)</h5>
-                  <h6 class="text-muted">Pt.Ravishankar Shukla University, Raipur:- MAY-JUN - 2022</h6>
-                  <p class="card-text">During my MCA, I focused on mastering different programming languages ​​and
+                  <h5 class="card-title gradient-heading">Master of Computer Applications (MCA)</h5>
+                  <h6 class="text-muted text_font">Pt.Ravishankar Shukla University, Raipur:- MAY-JUN - 2022</h6>
+                  <p class="card-text text_font">During my MCA, I focused on mastering different programming languages ​​and
                     enhancing my logical thinking through hands-on project work. This practical exposure helped me gain
                     a
                     deeper understanding of software development and problem-solving techniques. With a 76% score,
@@ -479,10 +456,10 @@
               </div>
               <div class="card shadow-lg border-0 card-hover bg-white mb-3" data-aos="fade-up" data-aos-duration="1000">
                 <div class="card-body">
-                  <h5 class="card-title">Bachelor of Computer Computer Applications (BCA)</h5>
+                  <h5 class="card-title gradient-heading">Bachelor of Computer Computer Applications (BCA)</h5>
 
-                  <h6 class="text-muted">Netaji Subhash Mahavidyalaya belbhatha abhanpur Raipur:- MAR - APR - 2019</h6>
-                  <p class="card-text">Throughout my BCA, I gained knowledge in different programming languages and
+                  <h6 class="text-muted text_font">Netaji Subhash Mahavidyalaya belbhatha abhanpur Raipur:- MAR - APR - 2019</h6>
+                  <p class="card-text text_font">Throughout my BCA, I gained knowledge in different programming languages and
                     developed
                     logical thinking by building real-time projects. These experiences helped me understand the
                     practical side
@@ -493,9 +470,9 @@
               </div>
               <div class="card shadow-lg border-0 card-hover bg-white mb-3" data-aos="fade-up" data-aos-duration="1000">
                 <div class="card-body">
-                  <h5 class="card-title">Higher secondary school Certificate examination(12 th) </h5>
-                  <h6 class="text-muted">CG Board of secondary education,Raipur:- Feb-Mar, 2015 </h6>
-                  <p class="card-text">Despite scoring 55% in Biology, I gained a solid understanding of the subject and
+                  <h5 class="card-title gradient-heading">Higher secondary school Certificate examination(12 th) </h5>
+                  <h6 class="text-muted text_font">CG Board of secondary education,Raipur:- Feb-Mar, 2015 </h6>
+                  <p class="card-text text_font">Despite scoring 55% in Biology, I gained a solid understanding of the subject and
                     developed
                     analytical thinking through practical and theoretical learning. This foundation helped me adapt to
                     problem-solving tasks,
@@ -522,7 +499,7 @@
                   <div class="text-primary mb-3 " style="font-size: 2.5rem;">
                     <i class="fas fa-envelope"></i>
                   </div>
-                  <h5 class="card-title">Email</h5>
+                  <h5 class="card-title gradient-heading">Email</h5>
                   <p class="card-text">
                     <a href="mailto:lomeshwarsahu1996@gmail.com">lomeshwarsahu1996&#64;gmail.com</a>
                   </p>
@@ -538,9 +515,9 @@
                     <i class="fas fa-phone-alt" style="transform: rotate(100deg);"></i>
 
                   </div>
-                  <h5 class="card-title">Phone</h5>
+                  <h5 class="card-title gradient-heading">Phone</h5>
                   <p class="card-text">
-                    <a href="tel:+919340414187">+91 9340414187</a> /
+                    <a href="tel:+919340414187">+91 9340414187</a> <br>
                     <a href="tel:+918719082655">+91 8719082655</a>
                   </p>
                 </div>
@@ -554,7 +531,7 @@
                   <div class="text-info mb-3" style="font-size: 2.5rem;">
                     <i class="fab fa-linkedin"></i>
                   </div>
-                  <h5 class="card-title">LinkedIn</h5>
+                  <h5 class="card-title gradient-heading">LinkedIn</h5>
                   <p class="card-text">
                     <a href="http://surl.li/kxpct" target="_blank">linkedin.http://surl.li/kxpct</a>
                   </p>
@@ -569,7 +546,7 @@
                   <div class="text-dark mb-3" style="font-size: 2.5rem;">
                     <i class="fab fa-github"></i>
                   </div>
-                  <h5 class="card-title">GitHub</h5>
+                  <h5 class="card-title gradient-heading">GitHub</h5>
                   <p class="card-text">
                     <a href="https://github.com/Lomeshwarsahu" target="_blank">https://github.com/Lomeshwarsahu</a>
                   </p>
